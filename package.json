@@ -1,0 +1,103 @@
+{
+  "name": "dface-live",
+  "version": "0.1.0",
+  "devVersion": "8",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --mode dev",
+    "build:dev": "vue-cli-service build --mode devbuild",
+    "build:prod": "vue-cli-service build --mode prod",
+    "build:pre": "vue-cli-service build --mode pre",
+    "lint": "vue-cli-service lint",
+    "cz": "npm run log && git add . && git cz",
+    "log": "conventional-changelog --config ./node_modules/vue-cli-plugin-commitlint/lib/log -i CHANGELOG.md -s -r 0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "blueeyes": "^1.1.4",
+    "core-js": "^3.6.5",
+    "dface-fetch": "^1.0.6",
+    "dface-shared": "^1.0.20",
+    "element-ui": "^2.4.5",
+    "qrcode2": "^1.2.3",
+    "right-pad": "^1.0.1",
+    "sockjs-client": "^1.5.0",
+    "stompjs": "^2.3.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0",
+    "xgplayer": "^2.9.11",
+    "xgplayer-flv": "^2.3.24",
+    "xgplayer-vue": "^1.1.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-router": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "commitizen": "^4.0.3",
+    "commitlint": "^8.2.0",
+    "conventional-changelog-cli": "^2.0.28",
+    "dface-nexus-deployer-webpack-plugin": "0.0.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.5.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.19.1",
+    "rc": "^1.2.8",
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-commitlint": "~1.0.12",
+    "vue-cli-plugin-element": "~1.0.1",
+    "vue-template-compiler": "^2.6.11",
+    "zip-webpack-plugin": "^3.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/prettier"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "no-control-regex": 0
+    }
+  },
+  "prettier": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/vue-cli-plugin-commitlint/lib/cz"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
